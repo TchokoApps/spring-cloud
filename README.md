@@ -10,3 +10,6 @@
 |Netflix Eureka Naming Server|8761
 |Netflix Zuul API Gateway Server|8765
 |Zipkin Distributed Tracing Server|9411
+
+### Run multiple instances
+To run multiple instances of an application you can run the springboot application with the following vm options: -Dserver.port=8001
