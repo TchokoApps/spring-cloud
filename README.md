@@ -17,3 +17,5 @@ To run multiple instances of an application you can run the springboot applicati
 Requests
 
 http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/100
+
+http://localhost:8765/currency-conversion-service/currency-converter-feign/from/EUR/to/INR/quantity/100
