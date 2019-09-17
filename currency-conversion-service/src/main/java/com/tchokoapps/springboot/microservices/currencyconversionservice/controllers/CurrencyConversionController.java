@@ -2,6 +2,7 @@ package com.tchokoapps.springboot.microservices.currencyconversionservice.contro
 
 import com.tchokoapps.springboot.microservices.currencyconversionservice.beans.CurrencyConversionBean;
 import com.tchokoapps.springboot.microservices.currencyconversionservice.proxies.CurrencyExchangeServiceProxy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@Slf4j
 public class CurrencyConversionController {
 
     private CurrencyExchangeServiceProxy currencyExchangeServiceProxy;
@@ -41,6 +43,8 @@ public class CurrencyConversionController {
     public CurrencyConversionBean convertCurrencyFeign(@PathVariable String from, @PathVariable String to, @PathVariable BigDecimal quantity) {
 
         CurrencyConversionBean responseBody = currencyExchangeServiceProxy.retrieveExchangeValue(from, to);
+
+        log.info("response = {}", responseBody);
 
         return new CurrencyConversionBean(responseBody.getId(), responseBody.getFrom(), responseBody.getTo(),
                 responseBody.getConversionMultiple(), quantity, quantity.multiply(responseBody.getConversionMultiple()), responseBody.getPort());
