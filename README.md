@@ -13,3 +13,7 @@
 
 ### Run multiple instances
 To run multiple instances of an application you can run the springboot application with the following vm options: -Dserver.port=8001
+
+Requests
+
+http://localhost:8100/currency-converter-feign/from/EUR/to/INR/quantity/100
